@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <a href="https://www.coinfid.com/">
+    <a href="https://www.eosup.com/">
       <img class="logo" src="./assets/logo.png" alt>
     </a>
     <HelloWorld/>

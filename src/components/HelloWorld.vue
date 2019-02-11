@@ -37,7 +37,10 @@
         <p><button @click="getPublicKey">Demo 7: getPublicKey</button></p>
         
         <p><button @click="linkAccount">Demo 8: linkAccount</button></p>
-        <p><button @click="requestTransfer">Demo 9: requestTransfer</button></p>
+        <p>
+          <button @click="requestTransfer">Demo 9: requestTransfer</button>
+          : <input type="text" v-model="toAccount" placeholder="trandfer to account">
+        </p>
         
       </div>
     </div>
@@ -95,6 +98,7 @@ export default {
       version: "",
       debug: false,
       network: network.host,
+      toAccount: "",
     };
   },
   created() {
@@ -161,21 +165,21 @@ export default {
       this.currentPermission = null;
     },
     send() {
-      alert("not implement!!!")
-      // eosClient
-      //   .transfer(
-      //     this.currentAccount,
-      //     "whatsupto123",
-      //     "0.0001 EOS",
-      //     "from scatter-demo"
-      //   )
-      //   .then(data => {
-      //     alert("succeed");
-      //     console.log(data);
-      //   })
-      //   .catch(err => {
-      //     alert(JSON.stringify(err));
-      //   });
+      // alert("not implement!!!")
+      eosClient
+        .transfer(
+          this.currentAccount,
+          "whatsupto123",
+          "0.0001 EOS",
+          "from scatter-demo"
+        )
+        .then(data => {
+          alert("succeed");
+          console.log(data);
+        })
+        .catch(err => {
+          alert(JSON.stringify(err));
+        });
     },
     vote() {
       alert("not implement!!!")
@@ -273,7 +277,7 @@ export default {
     },
     requestTransfer() {
       const tokenDetails = {contract:'eosio.token', symbol:'EOS', memo:'', decimals:4};
-      const to = "whatsupto123";
+      const to = this.toAccount || "whatsupto123" || "ohmyladygag1";
       const amount = "0.0001";
       this.scatter.requestTransfer(network, to, amount, tokenDetails).then(result => {
           console.log('result', result);
@@ -314,5 +318,6 @@ hr {
 }
 .content {
   text-align: left;
+  margin-left: 5%;
 }
 </style>
