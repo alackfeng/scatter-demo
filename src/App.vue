@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <a href="https://www.mytokenpocket.vip">
+    <a href="https://www.coinfid.com/">
       <img class="logo" src="./assets/logo.png" alt>
     </a>
     <HelloWorld/>
