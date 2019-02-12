@@ -2,7 +2,7 @@
   <div class="hello">
     <p class="setting">
       <label for="debug-network">
-        {{ network }}
+        {{ network }}&nbsp;&nbsp;
         <input id="is-debug-network" type="checkbox" v-model="debug">Debug
       </label>
     </p>
@@ -43,6 +43,9 @@
         </p>
         
       </div>
+    </div>
+    <div v-else>
+      <p class="warning">Scatter Server No Run!!!</p>
     </div>
     <p class="copyright">
       <hr />
@@ -316,6 +319,13 @@ hr {
 .main {
   text-align: center;
 }
+
+.warning {
+  color: #a71414;
+  font-size: x-large;
+  font-weight: bold;
+}
+
 .content {
   text-align: left;
   margin-left: 5%;
