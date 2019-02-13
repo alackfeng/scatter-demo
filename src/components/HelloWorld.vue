@@ -99,7 +99,7 @@ export default {
       whatfor: "tp-demo",
       isHash: false,
       version: "",
-      debug: false,
+      debug: true,
       network: network.host,
       toAccount: "",
     };
